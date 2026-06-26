@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultra Design</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#050816;
+overflow-x:hidden;
+color:white;
+}
+
+body::before{
+content:"";
+position:fixed;
+width:700px;
+height:700px;
+background:#7f5af0;
+filter:blur(180px);
+left:-200px;
+top:-200px;
+opacity:.45;
+}
+
+body::after{
+content:"";
+position:fixed;
+width:700px;
+height:700px;
+background:#00d4ff;
+filter:blur(180px);
+right:-200px;
+bottom:-200px;
+opacity:.35;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 10%;
+position:fixed;
+width:100%;
+backdrop-filter:blur(20px);
+background:rgba(255,255,255,.05);
+border-bottom:1px solid rgba(255,255,255,.1);
+z-index:100;
+}
+
+.logo{
+font-size:35px;
+font-weight:900;
+background:linear-gradient(90deg,#00eaff,#9b5cff);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:35px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:.4s;
+}
+
+nav a:hover{
+color:#00eaff;
+}
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.box{
+max-width:900px;
+padding:60px;
+border-radius:35px;
+background:rgba(255,255,255,.07);
+backdrop-filter:blur(25px);
+border:1px solid rgba(255,255,255,.15);
+box-shadow:0 0 60px rgba(0,255,255,.15);
+}
+
+.box h1{
+font-size:75px;
+line-height:1;
+font-weight:900;
+background:linear-gradient(90deg,#00eaff,#8b5cf6,#ff00cc);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+.box p{
+margin-top:25px;
+font-size:20px;
+color:#ddd;
+line-height:1.8;
+}
+
+.btns{
+margin-top:40px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+button{
+padding:18px 45px;
+border:none;
+border-radius:60px;
+font-size:18px;
+cursor:pointer;
+transition:.4s;
+}
+
+.primary{
+background:linear-gradient(90deg,#00eaff,#8b5cf6);
+color:white;
+box-shadow:0 0 35px #00d4ff;
+}
+
+.primary:hover{
+transform:translateY(-8px) scale(1.05);
+box-shadow:0 0 60px #00d4ff;
+}
+
+.secondary{
+background:transparent;
+border:2px solid white;
+color:white;
+}
+
+.secondary:hover{
+background:white;
+color:#111;
+}
+
+.cards{
+padding:100px 10%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.15);
+padding:35px;
+border-radius:25px;
+backdrop-filter:blur(20px);
+transition:.5s;
+}
+
+.card:hover{
+transform:translateY(-15px);
+box-shadow:0 0 40px rgba(0,255,255,.4);
+}
+
+.card h2{
+margin-bottom:15px;
+font-size:28px;
+}
+
+.card p{
+color:#ccc;
+line-height:1.8;
+}
+
+footer{
+padding:40px;
+text-align:center;
+color:#aaa;
+}
+
+@media(max-width:768px){
+
+.box h1{
+font-size:50px;
+}
+
+nav ul{
+display:none;
+}
+
+}
+</style>
+
+</head>
+<body>
+
+<nav>
+
+<div class="logo">ULTRA</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Portfolio</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="box">
+
+<h1>ULTRA FUTURE UI</h1>
+
+<p>
+Eng zamonaviy Glassmorphism + Neon + Gradient dizayn.
+Premium ko'rinish, animatsiyaga tayyor va professional landing page.
+</p>
+
+<div class="btns">
+<button class="primary">Boshlash</button>
+<button class="secondary">Ko'rish</button>
+</div>
+
+</div>
+
+</section>
+
+<section class="cards">
+
+<div class="card">
+<h2>⚡ Fast</h2>
+<p>Yuqori tezlik va zamonaviy kod.</p>
+</div>
+
+<div class="card">
+<h2>🎨 Premium</h2>
+<p>Glassmorphism va Neon effektlari.</p>
+</div>
+
+<div class="card">
+<h2>🚀 Responsive</h2>
+<p>Telefon, planshet va kompyuter uchun mos.</p>
+</div>
+
+</section>
+
+<footer>
+© 2026 Ultra Design | HTML + CSS
+</footer>
+
+</body>
+</html>
