@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdulloh | Ultra Premium Personal Website</title>
+    <style>
+        :root {
+            --bg-dark: #05050a;
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --border-color: rgba(255, 255, 255, 0.07);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --primary-glow: #ff007f;
+            --secondary-glow: #7000ff;
+            --accent-cyan: #00f2fe;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Orqa Fon Chiroqlari */
+        .ambient-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(180px);
+            opacity: 0.25;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .glow-1 { top: -10%; left: -10%; background: var(--primary-glow); }
+        .glow-2 { bottom: 10%; right: -10%; background: var(--secondary-glow); }
+
+        /* Navigatsiya */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 5, 10, 0.6);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #fff, var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+        }
+
+        /* Umumiy Konteyner Stilallari */
+        section {
+            padding: 140px 10% 80px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            text-align: center;
+            letter-spacing: -1px;
+        }
+
+        .section-title span {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--secondary-glow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 1. BOSH SAHIFA (HERO) */
+        #home {
+            text-align: center;
+            align-items: center;
+        }
+
+        .hero-badge {
+            padding: 6px 18px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-cyan);
+            margin-bottom: 30px;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            letter-spacing: -2px;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .cta-btn {
+            padding: 16px 40px;
+            background: #fff;
+            color: #000;
+            font-weight: 700;
+            border-radius: 14px;
+            text-decoration: none;
+            transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-4px);
+            background: var(--accent-cyan);
+            box-shadow: 0 15px 30px rgba(0, 242, 254, 0.4);
+        }
+
+        /* 2. MEN HAQIMDA */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        .skill-card h4 {
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .skill-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-glow), var(--accent-cyan));
+            border-radius: 10px;
+        }
+
+        /* 3. XIZMATLAR */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            border-radius: 24px;
+            transition: 0.4s;
+            backdrop-filter: blur(10px);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 242, 254, 0.3);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* 4. LOYIHALAR (PORTFOLIO) */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .project-card {
+            position: relative;
+            background: #111119;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            group-hover: transform;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #1e1e2f, #0f0f1a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.2);
+            transition: 0.5s;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, var(--secondary-glow), #0f0f1a);
+        }
+
+        .project-info {
+            padding: 30px;
+            background: #05050a;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .project-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .project-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* 5. ALOQA */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 28px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(90deg, var(--secondary-glow), var(--primary-glow));
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            box-shadow: 0 10px 25px rgba(112, 0, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Mobil Moslashuvchanlik (Responsive) */
+        @media (max-width: 968px) {
+            .about-grid, .services-grid, .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-title { font-size: 3rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <nav>
+        <div class="logo">ABDULLOH.</div>
+        <ul class="nav-links">
+            <li><a href="#home">Asosiy</a></li>
+            <li><a href="#about">Men haqimda</a></li>
+            <li><a href="#services">Xizmatlar</a></li>
+            <li><a href="#portfolio">Loyihalar</a></li>
+            <li><a href="#contact">Aloqa</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <div class="hero-badge">Kelajak Texnologiyalari</div>
+        <h1 class="hero-title">Raqamli Olampasand<br>Dizayn va Dasturlash</h1>
+        <p class="hero-desc">Mening ismim Abdulloh. Men yuqori sifatli va murakkablikdagi premium veb-saytlar, interfeyslar va dasturiy yechimlarni ishlab chiqaman.</p>
+        <a href="#contact" class="cta-btn">Loyiha boshlash</a>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Men <span>Haqimda</span></h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Men zamonaviy veb-texnologiyalar olamida innovatsion g'oyalarni kodga aylantiraman. Har bir loyihamda mukammal funksionallik va premium vizual ko'rinish uyg'unligiga intilaman.</p>
+                <p>Mijozlar ehtiyojlaridan kelib chiqib, brendlarni yangi bosqichga olib chiquvchi ekotizimlarni yaratish asosiy maqsadimdir.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h4>UI/UX Design</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-card">
+                    <h4>Frontend (HTML/CSS/JS)</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-card">
+                    <h4>Backend Development</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-card">
+                    <h4>Mobile Apps</h4>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title">Premium <span>Xizmatlar</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">💎</span>
+                <h3>Brending & UI/UX</h3>
+                <p>Mutlaqo takrorlanmas, zamonaviy va foydalanuvchilar uchun qulay bo'lgan kreativ interfeys dizaynlarini chizish.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">⚡</span>
+                <h3>Veb Dasturlash</h3>
+                <p>Tezkor, xavfsiz va barcha qurilmalarga moslashuvchi (responsive) murakkab veb-sayt va platformalar yaratish.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🚀</span>
+                <h3>SEO & Optimizatsiya</h3>
+                <p>Saytlarni qidiruv tizimlarida (Google) eng yuqori o'rinlarga ko'tarish va yuklanish tezligini maksimal darajaga yetkazish.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2 class="section-title">Saralangan <span>Loyihalar</span></h2>
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <div class="project-img">[ FinTech Ekotizim ]</div>
+                <div class="project-info">
+                    <h3>Finans mobil ilovasi</h3>
+                    <p>UI/UX Dizayn va Frontend dasturlash</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img">[ E-Commerce Platform ]</div>
+                <div class="project-info">
+                    <h3>Premium Onlayn Do'kon</h3>
+                    <p>To'liq funksional korporativ savdo platformasi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Men bilan <span>Bog'lanish</span></h2>
+        <div class="contact-container">
+            <form onsubmit="event.preventDefault(); alert('Xabar muvaffaqiyatli yuborildi!');">
+                <div class="form-group">
+                    <label>Ismingiz</label>
+                    <input type="text" placeholder="Abdulloh" required>
+                </div>
+                <div class="form-group">
+                    <label>Email manzilingiz</label>
+                    <input type="email" placeholder="example@gmail.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Xabaringiz</label>
+                    <textarea rows="5" placeholder="Loyiha haqida batafsil ma'lumot..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Xabarni yuborish</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Abdulloh. Barcha huquqlar himoyalangan. Ultra Premium Design.</p>
+    </footer>
+
+</body>
+</html>
